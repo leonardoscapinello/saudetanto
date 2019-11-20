@@ -7,17 +7,13 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      id_category: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
       title: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       content: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: false,
       },
       author: {
         type: Sequelize.STRING,

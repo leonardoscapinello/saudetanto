@@ -4,9 +4,8 @@ class Category extends Model {
   static init(sequelize) {
     super.init(
       {
-        category_name: Sequelize.STRING,
-        is_credit: Sequelize.BOOLEAN,
-        is_visible: Sequelize.BOOLEAN,
+        id: Sequelize.INTEGER,
+        category_name: Sequelize.TEXT,
       },
       {
         sequelize,
