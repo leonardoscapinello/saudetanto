@@ -4,8 +4,6 @@ class Post extends Model {
   static init(sequelize) {
     super.init(
       {
-        id: Sequelize.INTEGER,
-        id_category: Sequelize.INTEGER,
         title: Sequelize.STRING,
         content: Sequelize.TEXT,
         author: Sequelize.STRING,
@@ -17,6 +15,10 @@ class Post extends Model {
     );
 
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Category, { foreignKey: 'id', as: 'category_id' });
   }
 }
 

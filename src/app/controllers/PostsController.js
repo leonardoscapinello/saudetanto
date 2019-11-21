@@ -8,9 +8,9 @@ class PostsController {
         .min(3)
         .max(48)
         .required(),
-      id_category: Yup.number().required(),
+      category_id: Yup.number().required(),
       content: Yup.string().required(),
-      authour: Yup.string().required(),
+      author: Yup.string().required(),
       keywords: Yup.string(),
     });
     if (!(await schema.isValid(req.body))) {
@@ -36,13 +36,11 @@ class PostsController {
 
   async index(req, res) {
     const categories = await Post.findAll({
-      where: {
-        is_visible: true,
-      },
       attributes: [
         'id',
-        'category_name',
-        'is_credit',
+        'title',
+        'content',
+        'author',
         'created_at',
         'updated_at',
       ],
@@ -55,8 +53,9 @@ class PostsController {
       where: { id: req.params.id },
       attributes: [
         'id',
-        'category_name',
-        'is_credit',
+        'title',
+        'content',
+        'author',
         'created_at',
         'updated_at',
       ],
