@@ -1,4 +1,3 @@
-import * as Yup from 'yup';
 import Post from '../models/Post';
 
 class PostsPaginationController {
